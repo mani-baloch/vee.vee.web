@@ -65,6 +65,8 @@ export default function Home() {
 
         {/* 4. CTA Banner */}
         <CtaBanner
+          imageSrc="/images/cta-vet.png"
+          altText="Veterinary technician with tablet and golden retriever dog"
           onOpenSignUp={() => setIsSignUpOpen(true)}
         />
       </main>

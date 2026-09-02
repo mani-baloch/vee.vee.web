@@ -98,14 +98,15 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-200/30 to-teal-200/30 rounded-3xl filter blur-2xl -z-10 transform scale-95" />
 
               {/* Main Illustration Container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white">
+              <div className="relative flex justify-center items-center">
                 <Image
-                  src="/images/hero-vets.jpg"
+                  src="/images/hero-vets.png"
                   alt="Friendly veterinarian and vet technician with a happy golden retriever dog"
                   width={640}
-                  height={480}
+                  height={520}
                   priority
-                  className="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500"
+                  unoptimized
+                  className="w-full max-w-[460px] h-auto object-contain drop-shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
 
