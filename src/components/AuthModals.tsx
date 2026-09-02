@@ -15,10 +15,10 @@ export interface AuthModalsProps {
   onCloseDemo: () => void;
   signUpOpen: boolean;
   onCloseSignUp: () => void;
-  requestShiftData: any | null;
-  onCloseRequestShift: () => void;
-  postScheduleData: any | null;
-  onClosePostSchedule: () => void;
+  requestShiftData?: any | null;
+  onCloseRequestShift?: () => void;
+  postScheduleData?: any | null;
+  onClosePostSchedule?: () => void;
 }
 
 export const AuthModals: React.FC<AuthModalsProps> = ({
@@ -28,10 +28,10 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
   onCloseDemo,
   signUpOpen,
   onCloseSignUp,
-  requestShiftData,
-  onCloseRequestShift,
-  postScheduleData,
-  onClosePostSchedule,
+  requestShiftData = null,
+  onCloseRequestShift = () => {},
+  postScheduleData = null,
+  onClosePostSchedule = () => {},
 }) => {
   // Login form state
   const [loginEmail, setLoginEmail] = useState('');

@@ -1,144 +1,194 @@
 import React from 'react';
 
 export interface HoneycombPatternProps {
-  variant?: 'hero-peach' | 'dark-cta' | 'subtle';
+  variant?: 'hero-blue' | 'hero-peach' | 'dark-cta' | 'footer-subtle';
   className?: string;
 }
 
 export const HoneycombPattern: React.FC<HoneycombPatternProps> = ({
-  variant = 'hero-peach',
+  variant = 'hero-blue',
   className = '',
 }) => {
-  if (variant === 'hero-peach') {
+  if (variant === 'hero-blue') {
     return (
       <div className={`pointer-events-none select-none overflow-hidden ${className}`}>
         <svg
-          viewBox="0 0 450 350"
+          viewBox="0 0 520 400"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full opacity-90"
+          className="w-full h-full"
         >
           <defs>
-            <linearGradient id="honeyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FDE68A" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.4" />
+            {/* Hexagon Shading Gradients matching the mockup light-blue tones */}
+            <linearGradient id="blueHexGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#DBE8FE" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#C0D7FD" stopOpacity="0.65" />
             </linearGradient>
-            <linearGradient id="honeyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FED7AA" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#FDBA74" stopOpacity="0.5" />
+            <linearGradient id="blueHexGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#EBF2FE" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#D2E2FC" stopOpacity="0.5" />
             </linearGradient>
-            <linearGradient id="honeyGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFFBEB" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0.6" />
+            <linearGradient id="blueHexGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#E2EEFE" stopOpacity="0.4" />
+            </linearGradient>
+            <linearGradient id="blueHexGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#CDE0FD" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#ADC8FA" stopOpacity="0.45" />
             </linearGradient>
           </defs>
 
-          {/* Top Row Honeycombs */}
-          {/* Hex 1 */}
+          {/* Row 0 / Top */}
           <polygon
-            points="50,10 90,30 90,75 50,95 10,75 10,30"
-            fill="url(#honeyGrad1)"
-            stroke="#FDE68A"
+            points="48,2 88,24 88,68 48,90 8,68 8,24"
+            fill="url(#blueHexGrad1)"
+            stroke="#C5DCFE"
             strokeWidth="1.5"
           />
-          {/* Hex 2 */}
           <polygon
-            points="135,10 175,30 175,75 135,95 95,75 95,30"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
+            points="136,2 176,24 176,68 136,90 96,68 96,24"
+            fill="url(#blueHexGrad2)"
+            stroke="#DBE8FE"
             strokeWidth="1.5"
           />
-          {/* Hex 3 */}
           <polygon
-            points="220,10 260,30 260,75 220,95 180,75 180,30"
-            fill="url(#honeyGrad3)"
-            stroke="#FEF3C7"
-            strokeWidth="1"
+            points="224,2 264,24 264,68 224,90 184,68 184,24"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
+            strokeWidth="1.2"
+            opacity="0.85"
           />
-          {/* Hex 4 */}
           <polygon
-            points="305,10 345,30 345,75 305,95 265,75 265,30"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
+            points="312,2 352,24 352,68 312,90 272,68 272,24"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
             strokeWidth="1"
-            opacity="0.6"
+            opacity="0.45"
           />
 
-          {/* Row 2 (offset) */}
-          {/* Hex 5 */}
+          {/* Row 1 (offset) */}
           <polygon
-            points="92,78 132,98 132,143 92,163 52,143 52,98"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
+            points="92,72 132,94 132,138 92,160 52,138 52,94"
+            fill="url(#blueHexGrad4)"
+            stroke="#BBD6FD"
             strokeWidth="1.5"
           />
-          {/* Hex 6 */}
           <polygon
-            points="177,78 217,98 217,143 177,163 137,143 137,98"
-            fill="url(#honeyGrad1)"
-            stroke="#FDE68A"
+            points="180,72 220,94 220,138 180,160 140,138 140,94"
+            fill="url(#blueHexGrad1)"
+            stroke="#C8DEFE"
             strokeWidth="1.5"
           />
-          {/* Hex 7 */}
           <polygon
-            points="262,78 302,98 302,143 262,163 222,143 222,98"
-            fill="url(#honeyGrad3)"
-            stroke="#FEF3C7"
+            points="268,72 308,94 308,138 268,160 228,138 228,94"
+            fill="url(#blueHexGrad2)"
+            stroke="#DBE8FE"
+            strokeWidth="1.2"
+            opacity="0.75"
+          />
+          <polygon
+            points="356,72 396,94 396,138 356,160 316,138 316,94"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
             strokeWidth="1"
-            opacity="0.8"
+            opacity="0.35"
           />
-          {/* Hex 8 */}
+
+          {/* Row 2 */}
           <polygon
-            points="347,78 387,98 387,143 347,163 307,143 307,98"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
+            points="48,142 88,164 88,208 48,230 8,208 8,164"
+            fill="url(#blueHexGrad2)"
+            stroke="#DBE8FE"
+            strokeWidth="1.5"
+          />
+          <polygon
+            points="136,142 176,164 176,208 136,230 96,208 96,164"
+            fill="url(#blueHexGrad3)"
+            stroke="#E2EEFE"
+            strokeWidth="1.5"
+            opacity="0.9"
+          />
+          <polygon
+            points="224,142 264,164 264,208 224,230 184,208 184,164"
+            fill="url(#blueHexGrad1)"
+            stroke="#C8DEFE"
+            strokeWidth="1.2"
+            opacity="0.6"
+          />
+          <polygon
+            points="312,142 352,164 352,208 312,230 272,208 272,164"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
+            strokeWidth="1"
+            opacity="0.25"
+          />
+
+          {/* Row 3 (offset) */}
+          <polygon
+            points="92,212 132,234 132,278 92,300 52,278 52,234"
+            fill="url(#blueHexGrad3)"
+            stroke="#E2EEFE"
+            strokeWidth="1.2"
+            opacity="0.7"
+          />
+          <polygon
+            points="180,212 220,234 220,278 180,300 140,278 140,234"
+            fill="url(#blueHexGrad2)"
+            stroke="#DBE8FE"
+            strokeWidth="1.2"
+            opacity="0.45"
+          />
+          <polygon
+            points="268,212 308,234 308,278 268,300 228,278 228,234"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
+            strokeWidth="1"
+            opacity="0.2"
+          />
+
+          {/* Row 4 */}
+          <polygon
+            points="48,282 88,304 88,348 48,370 8,348 8,304"
+            fill="url(#blueHexGrad3)"
+            stroke="#E2EEFE"
             strokeWidth="1"
             opacity="0.4"
           />
+          <polygon
+            points="136,282 176,304 176,348 136,370 96,348 96,304"
+            fill="url(#blueHexGrad3)"
+            stroke="#EBF2FE"
+            strokeWidth="1"
+            opacity="0.25"
+          />
+        </svg>
+      </div>
+    );
+  }
 
-          {/* Row 3 */}
-          {/* Hex 9 */}
-          <polygon
-            points="50,146 90,166 90,211 50,231 10,211 10,166"
-            fill="url(#honeyGrad3)"
-            stroke="#FEF3C7"
-            strokeWidth="1.5"
-            opacity="0.85"
-          />
-          {/* Hex 10 */}
-          <polygon
-            points="135,146 175,166 175,211 135,231 95,211 95,166"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
-            strokeWidth="1.5"
-            opacity="0.75"
-          />
-          {/* Hex 11 */}
-          <polygon
-            points="220,146 260,166 260,211 220,231 180,211 180,166"
-            fill="url(#honeyGrad1)"
-            stroke="#FDE68A"
-            strokeWidth="1"
-            opacity="0.5"
-          />
-
-          {/* Row 4 (offset) */}
-          {/* Hex 12 */}
-          <polygon
-            points="92,214 132,234 132,279 92,299 52,279 52,234"
-            fill="url(#honeyGrad2)"
-            stroke="#FED7AA"
-            strokeWidth="1"
-            opacity="0.5"
-          />
-          {/* Hex 13 */}
-          <polygon
-            points="177,214 217,234 217,279 177,299 137,279 137,234"
-            fill="url(#honeyGrad3)"
-            stroke="#FEF3C7"
-            strokeWidth="1"
-            opacity="0.3"
-          />
+  if (variant === 'footer-subtle') {
+    return (
+      <div className={`pointer-events-none select-none overflow-hidden ${className}`}>
+        <svg
+          className="w-full h-full opacity-40"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+        >
+          <pattern
+            id="footerHexPattern"
+            width="48"
+            height="83.14"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M24 0 L48 13.86 L48 41.57 L24 55.43 L0 41.57 L0 13.86 Z M24 83.14 L48 69.28 L48 41.57 L24 27.71 L0 41.57 L0 69.28 Z"
+              fill="none"
+              stroke="#E2E8F0"
+              strokeWidth="0.8"
+            />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#footerHexPattern)" />
         </svg>
       </div>
     );
@@ -148,22 +198,21 @@ export const HoneycombPattern: React.FC<HoneycombPatternProps> = ({
   return (
     <div className={`pointer-events-none select-none overflow-hidden ${className}`}>
       <svg
-        className="w-full h-full opacity-25"
+        className="w-full h-full opacity-20"
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
         height="100%"
       >
         <pattern
           id="darkHexPattern"
-          width="56"
-          height="97"
+          width="54"
+          height="93.53"
           patternUnits="userSpaceOnUse"
-          patternTransform="scale(0.8)"
         >
           <path
-            d="M28 0 L56 16.16 L56 48.49 L28 64.65 L0 48.49 L0 16.16 Z M28 97 L56 80.84 L56 48.51 L28 32.35 L0 48.51 L0 80.84 Z"
+            d="M27 0 L54 15.59 L54 46.77 L27 62.35 L0 46.77 L0 15.59 Z M27 93.53 L54 77.94 L54 46.77 L27 31.18 L0 46.77 L0 77.94 Z"
             fill="none"
-            stroke="#475569"
+            stroke="#5B78BD"
             strokeWidth="1.2"
           />
         </pattern>
