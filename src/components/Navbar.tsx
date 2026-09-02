@@ -33,19 +33,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { name: 'Practices', href: '#practices' },
-    { name: 'Vets', href: '#vets' },
-    { name: 'Techs', href: '#techs' },
-    { name: 'Students', href: '#students' },
+    { name: 'Practices', href: '/practices' },
+    { name: 'Vets', href: '/#how-it-works' },
+    { name: 'Techs', href: '/#how-it-works' },
+    { name: 'Students', href: '/#how-it-works' },
   ];
-
-  const handleLinkClick = (name: string, href: string) => {
-    setCurrentTab(name);
-    setMobileMenuOpen(false);
-    if (onNavigateSection) {
-      onNavigateSection(href.replace('#', ''));
-    }
-  };
 
   return (
     <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 transition-all duration-300 pointer-events-none">
@@ -70,12 +62,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navLinks.map((link) => {
               const isActive = currentTab === link.name;
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.name, link.href);
+                  onClick={() => {
+                    setCurrentTab(link.name);
+                    if (onNavigateSection && link.href.includes('#')) {
+                      onNavigateSection(link.href.split('#')[1]);
+                    }
                   }}
                   className={`text-sm font-semibold transition-all duration-150 relative py-1 cursor-pointer ${
                     isActive
@@ -87,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {isActive && (
                     <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#0F4A3E] rounded-full" />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -139,12 +133,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               {navLinks.map((link) => {
                 const isActive = currentTab === link.name;
                 return (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick(link.name, link.href);
+                    onClick={() => {
+                      setCurrentTab(link.name);
+                      setMobileMenuOpen(false);
+                      if (onNavigateSection && link.href.includes('#')) {
+                        onNavigateSection(link.href.split('#')[1]);
+                      }
                     }}
                     className={`px-3 py-2 rounded-xl text-sm font-semibold ${
                       isActive
@@ -153,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     }`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
