@@ -160,11 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* 1. Floating Pill Navbar */}
-        <Navbar
-          activeTab="Blog"
-          onOpenLogin={() => {}}
-          onOpenBookDemo={() => {}}
-        />
+        <Navbar activeTab="Blog" />
 
         {/* 2. Breadcrumb & Article Header */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 space-y-6">
@@ -299,7 +295,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* In-article CTA Banner */}
-        <CtaBanner onOpenSignUp={() => {}} />
+        <CtaBanner />
       </main>
 
       {/* Footer */}

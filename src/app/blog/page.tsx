@@ -56,11 +56,7 @@ export default async function BlogPage() {
         </div>
 
         {/* 1. Floating Pill Navbar */}
-        <Navbar
-          activeTab="Blog"
-          onOpenLogin={() => {}}
-          onOpenBookDemo={() => {}}
-        />
+        <Navbar activeTab="Blog" />
 
         {/* 2. Blog Header Section */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 text-center space-y-4">

@@ -6,13 +6,13 @@ import { HoneycombPattern } from './HoneycombPattern';
 import { Button } from './ui/button';
 
 export interface CtaBannerProps {
-  onOpenSignUp: () => void;
+  onOpenSignUp?: () => void;
   imageSrc?: string;
   altText?: string;
 }
 
 export const CtaBanner: React.FC<CtaBannerProps> = ({
-  onOpenSignUp,
+  onOpenSignUp = () => {},
   imageSrc = '/images/practices-cta-vet.png',
   altText = 'Veterinary professional with happy pet',
 }) => {

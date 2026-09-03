@@ -7,16 +7,16 @@ import { BeeLogo } from './BeeLogo';
 import { Button } from './ui/button';
 
 export interface NavbarProps {
-  onOpenLogin: () => void;
-  onOpenBookDemo: () => void;
+  onOpenLogin?: () => void;
+  onOpenBookDemo?: () => void;
   onOpenSignUp?: () => void;
   onNavigateSection?: (sectionId: string) => void;
   activeTab?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  onOpenLogin,
-  onOpenBookDemo,
+  onOpenLogin = () => {},
+  onOpenBookDemo = () => {},
   onNavigateSection,
   activeTab = 'Practices',
 }) => {
