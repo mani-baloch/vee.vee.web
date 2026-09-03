@@ -58,7 +58,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body className="min-h-screen bg-white font-sans text-gray-900 antialiased selection:bg-[#2D9B7C] selection:text-white flex flex-col">
         {children}
       </body>

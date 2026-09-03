@@ -38,39 +38,39 @@ export function generateExcerpt(contentOrHtml: string, maxLength: number = 160):
   return plainText.slice(0, maxLength).trim() + '...';
 }
 
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 /**
- * Formats an ISO date string for display.
+ * Formats an ISO date string for display (deterministic across timezones).
  */
 export function formatDate(dateString: string | null | undefined): string {
   if (!dateString) return 'Not published';
   try {
     const date = new Date(dateString);
     if (isNaN(date.getTime())) return 'Invalid date';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
+    const month = MONTH_NAMES[date.getUTCMonth()];
+    const day = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    return `${month} ${day}, ${year}`;
   } catch {
     return 'Invalid date';
   }
 }
 
 /**
- * Formats a date with time for detailed admin logs.
+ * Formats a date with time for detailed admin logs (deterministic across timezones).
  */
 export function formatDateTime(dateString: string | null | undefined): string {
   if (!dateString) return 'Never';
   try {
     const date = new Date(dateString);
     if (isNaN(date.getTime())) return 'Invalid date';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+    const month = MONTH_NAMES[date.getUTCMonth()];
+    const day = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    return `${month} ${day}, ${year} ${hours}:${minutes} UTC`;
   } catch {
     return 'Invalid date';
   }
